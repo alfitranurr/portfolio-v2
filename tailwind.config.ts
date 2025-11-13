@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        // Tambahan: Override font default Tailwind ke Poppins
+        sans: ["Poppins", "sans-serif"],
+      },
       colors: {
         // Shades untuk primary (biru), secondary (hijau), accent (ungu) - no duplicate
         primary: {

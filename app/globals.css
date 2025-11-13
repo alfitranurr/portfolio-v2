@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
 
 @layer base {
@@ -60,6 +61,7 @@
   body {
     background-color: hsl(var(--color-background));
     color: hsl(var(--color-foreground));
+    font-family: "Poppins", sans-serif; /* Tambahan: Set Poppins sebagai default global */
   }
 }
 

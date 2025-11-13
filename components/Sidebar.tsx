@@ -133,9 +133,9 @@ export default function Sidebar() {
           {/* Label & Icon (non-clickable) */}
           <div className="flex items-center space-x-2 pointer-events-none select-none">
             {isDark ? (
-              <Sun className="h-4 w-4" />
+              <Moon className="h-4 w-4" /> // ikon diganti Moon saat dark
             ) : (
-              <Moon className="h-4 w-4" />
+              <Sun className="h-4 w-4" /> // ikon diganti Sun saat light
             )}
             <span>{isDark ? "Dark Mode" : "Light Mode"}</span>
           </div>

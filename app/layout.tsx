@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "next-themes";
+import { ThemeProvider } from "next-themes"; // Import ini
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Al Fitra Nur R - Data Science",
-  description: "Data Scientist Portfolio",
+  title: "Al Fitra Nur R | Data Science",
+  description: "Data Science Portfolio",
 };
 
 export default function RootLayout({
@@ -20,15 +20,15 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+          attribute="class" // Tambah class 'dark' ke <html> untuk Tailwind
+          defaultTheme="system" // Default ikut OS (light/dark)
+          enableSystem // Enable system theme detection
+          disableTransitionOnChange // Opsional: Hilangkan transisi saat switch tema (lebih smooth)
         >
           <Sidebar />
-          <main className="ml-[calc(16rem+1rem)] px-4 md:px-6 lg:px-8 mx-auto max-w-6xl min-h-screen">
+          <main className="ml-64 p-8 min-h-screen">
             {" "}
-            {/* Adjust ml untuk + padding sidebar, px sama untuk simetri kanan */}
+            {/* Offset untuk sidebar */}
             {children}
           </main>
         </ThemeProvider>
