@@ -1,7 +1,24 @@
 import Image from "next/image";
 import { supabase } from "@/lib/supabase";
 import FeaturedSection from "@/components/FeaturedSection";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  Code,
+  Atom,
+  Palette,
+  Database,
+  Braces,
+  Server,
+  Box,
+  Image as ImageIcon,
+  PenTool,
+  BarChart3,
+  Settings,
+  Coffee,
+  FileSpreadsheet,
+  Presentation,
+  BarChart2,
+} from "lucide-react";
 
 export default async function Home() {
   // Fetch CV URL dari Supabase Storage (contoh)
@@ -14,23 +31,28 @@ export default async function Home() {
       {/* ===== About Section ===== */}
       <section className="w-full py-10">
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-3xl font-bold text-foreground">About</h1>
+          <h2 className="text-xl font-bold text-foreground">About Me</h2>
           <a
             href={publicUrl}
             download
-            className="flex items-center gap-2 px-4 py-2 rounded-full border border-border transition duration-200 bg-transparent hover:bg-muted text-sm font-medium text-foreground"
+            className="flex items-center gap-2 px-4 py-2 rounded-full border border-border dark:border-white/30 transition-all duration-200 bg-transparent hover:bg-zinc-100 dark:hover:bg-zinc-800 text-sm font-medium text-foreground"
           >
             <span>✨</span> Download My CV
             <ArrowRight className="w-4 h-4" />
           </a>
         </div>
         <p className="text-base leading-relaxed text-foreground">
-          As a Software Engineer with expertise in web and mobile development, I
-          am creating innovative and user-friendly solutions that solve
-          real-world problems. I am currently pursuing my S.Kom degree in
-          Informatics Engineering at the University of Muhammadiyah Malang,
-          where I have honed my skills in Web Development, Mobile Development,
-          and UI/UX design.
+          An Informatics undergraduate at the University of Muhammadiyah Malang,
+          currently in the 7th semester, showcasing a strong passion and
+          aptitude for data analytics, data science, data engineering, machine
+          learning, and research. Possessing a robust background in mathematics
+          and programming, complemented by effective communication abilities.
+          Well-versed in handling big data and proficient in Python, SQL, Excel,
+          and Tableau. Actively seeking opportunities to apply my knowledge and
+          skills in a dynamic professional environment. Committed to continuous
+          learning and personal growth, with a future objective of contributing
+          to innovative projects and advancing in the realm of data-related
+          technologies.
         </p>
       </section>
 
@@ -40,28 +62,90 @@ export default async function Home() {
       </div>
 
       {/* ===== Tech Stacks ===== */}
-      <section className="pb-10 w-full">
+      <section className="pt-10 pb-10 w-full">
         <h2 className="text-xl font-bold mb-6 text-left text-foreground">
           Tech Stacks that I have used
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-          <div className="p-4 border border-border rounded-lg text-center shadow-sm hover:shadow-md transition bg-background text-foreground text-base">
-            Next.js
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+          <div className="flex items-center justify-center gap-2 p-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground">
+            <Code className="w-4 h-4 shrink-0" />
+            <span>Next.js</span>
           </div>
-          <div className="p-4 border border-border rounded-lg text-center shadow-sm hover:shadow-md transition bg-background text-foreground text-base">
-            React
+          <div className="flex items-center justify-center gap-2 p-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground">
+            <Atom className="w-4 h-4 shrink-0" />
+            <span>React</span>
           </div>
-          <div className="p-4 border border-border rounded-lg text-center shadow-sm hover:shadow-md transition bg-background text-foreground text-base">
-            Tailwind
+          <div className="flex items-center justify-center gap-2 p-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground">
+            <Palette className="w-4 h-4 shrink-0" />
+            <span>Tailwind</span>
           </div>
-          <div className="p-4 border border-border rounded-lg text-center shadow-sm hover:shadow-md transition bg-background text-foreground text-base">
-            Supabase
+          <div className="flex items-center justify-center gap-2 p-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground">
+            <Database className="w-4 h-4 shrink-0" />
+            <span>Supabase</span>
           </div>
-          <div className="p-4 border border-border rounded-lg text-center shadow-sm hover:shadow-md transition bg-background text-foreground text-base">
-            TypeScript
+          <div className="flex items-center justify-center gap-2 p-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground">
+            <Braces className="w-4 h-4 shrink-0" />
+            <span>TypeScript</span>
           </div>
-          <div className="p-4 border border-border rounded-lg text-center shadow-sm hover:shadow-md transition bg-background text-foreground text-base">
-            Node.js
+          <div className="flex items-center justify-center gap-2 p-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground">
+            <Server className="w-4 h-4 shrink-0" />
+            <span>Node.js</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 p-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground">
+            <Box className="w-4 h-4 shrink-0" />
+            <span>Docker</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 p-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground">
+            <ImageIcon className="w-4 h-4 shrink-0" />
+            <span>Canva</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 p-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground">
+            <PenTool className="w-4 h-4 shrink-0" />
+            <span>Figma</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 p-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground">
+            <Code className="w-4 h-4 shrink-0" />
+            <span>Python</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 p-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground">
+            <BarChart3 className="w-4 h-4 shrink-0" />
+            <span>Looker Studio</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 p-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground">
+            <Settings className="w-4 h-4 shrink-0" />
+            <span>DBeaver</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 p-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground">
+            <Database className="w-4 h-4 shrink-0" />
+            <span>PostgreSQL</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 p-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground">
+            <Code className="w-4 h-4 shrink-0" />
+            <span>Google Colab</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 p-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground">
+            <Coffee className="w-4 h-4 shrink-0" />
+            <span>JavaScript</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 p-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground">
+            <Database className="w-4 h-4 shrink-0" />
+            <span>MySQL</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 p-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground">
+            <BarChart2 className="w-4 h-4 shrink-0" />
+            <span>Tableau</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 p-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground">
+            <Database className="w-4 h-4 shrink-0" />
+            <span>BigQuery</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 p-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground">
+            <FileSpreadsheet className="w-4 h-4 shrink-0" />
+            <span>Ms. Excel</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 p-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground">
+            <Presentation className="w-4 h-4 shrink-0" />
+            <span>Ms. PowerPoint</span>
           </div>
         </div>
       </section>

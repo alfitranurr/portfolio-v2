@@ -56,7 +56,9 @@ export default function Sidebar() {
         </div>
         <div className="space-y-1">
           <div className="flex items-center space-x-1">
-            <h1 className="text-lg font-bold leading-tight">Al Fitra Nur R.</h1>
+            <h1 className="text-lg font-bold leading-tight text-foreground">
+              Al Fitra Nur R.
+            </h1>
             <Image
               src="/Verified.png"
               alt="Verified"
@@ -65,7 +67,7 @@ export default function Sidebar() {
               className="ml-1"
             />
           </div>
-          <p className="text-sm text-gray-500">@rmdhani_ii</p>
+          <p className="text-sm text-zinc-500">@rmdhani_ii</p>
         </div>
         {/* 🧾 Garis bawah profile disamakan dengan yang di atas toggle */}
         <div className="border-t border-border w-[calc(100%-0.1rem)] mt-4 ml-[-0.6rem]" />
@@ -84,11 +86,11 @@ export default function Sidebar() {
                   "flex items-center justify-between w-full pr-3 py-2 rounded-xl text-sm font-medium transition-all cursor-pointer group relative -ml-3 pl-3",
                   isActive
                     ? isDark
-                      ? "bg-gray-800 text-white shadow-inner"
-                      : "bg-gray-200 text-gray-900 shadow-inner"
+                      ? "bg-zinc-800 text-white shadow-inner"
+                      : "bg-zinc-200 text-zinc-900 shadow-inner"
                     : isDark
-                    ? "text-gray-400 hover:bg-gray-800 hover:text-gray-100"
-                    : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                    ? "text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100"
+                    : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900"
                 )}
               >
                 <div className="flex items-center space-x-2">
@@ -98,10 +100,10 @@ export default function Sidebar() {
                       isActive
                         ? isDark
                           ? "text-white"
-                          : "text-gray-900"
+                          : "text-zinc-900"
                         : isDark
-                        ? "text-gray-400 group-hover:text-gray-100"
-                        : "text-gray-500 group-hover:text-gray-900"
+                        ? "text-zinc-400 group-hover:text-zinc-100"
+                        : "text-zinc-500 group-hover:text-zinc-900"
                     )}
                   />
                   <span>{item.label}</span>
@@ -127,7 +129,7 @@ export default function Sidebar() {
         <div
           className={cn(
             "flex items-center justify-between w-full px-2 py-2 rounded-xl text-sm font-medium -ml-3 pl-3 select-none",
-            isDark ? "text-gray-300" : "text-gray-600"
+            isDark ? "text-zinc-300" : "text-zinc-600"
           )}
         >
           {/* Label & Icon (non-clickable) */}
@@ -145,7 +147,7 @@ export default function Sidebar() {
             onClick={toggleDarkMode}
             className={cn(
               "relative w-10 h-5 flex items-center rounded-full cursor-pointer transition-colors duration-300",
-              isDark ? "bg-gray-600" : "bg-gray-300"
+              isDark ? "bg-zinc-600" : "bg-zinc-300"
             )}
           >
             <motion.div
