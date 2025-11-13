@@ -13,21 +13,21 @@ const config: Config = {
         sans: ["Poppins", "sans-serif"],
       },
       colors: {
-        // Shades untuk primary (biru), secondary (hijau), accent (ungu) - no duplicate
+        // Shades untuk primary (hitam), secondary (abu-abu), accent (putih) - no duplicate
         primary: {
-          50: "#eff6ff",
-          500: "#3b82f6", // Biru base untuk gradient
-          600: "#2563eb",
+          50: "#f9f9f9",
+          500: "#000000", // Hitam base untuk gradient
+          600: "#333333",
           DEFAULT: "hsl(var(--primary))", // Mapping ke CSS var
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          500: "#10b981", // Hijau base
+          500: "#808080", // Abu-abu sedang base
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
         accent: {
-          500: "#8b5cf6", // Ungu base
+          500: "#ffffff", // Putih base
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
@@ -61,7 +61,7 @@ const config: Config = {
       },
       backgroundImage: {
         "gradient-modern":
-          "linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 50%, rgba(139, 92, 246, 0.1) 100%)", // Transparan biru-hijau-ungu
+          "linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(128, 128, 128, 0.1) 50%, rgba(255, 255, 255, 0.05) 100%)", // Transparan hitam-abu-putih elegan
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",

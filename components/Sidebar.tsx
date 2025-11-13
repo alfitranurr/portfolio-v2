@@ -43,7 +43,7 @@ export default function Sidebar() {
   const isDark = mounted ? theme === "dark" : false;
 
   return (
-    <aside className="fixed left-0 top-0 h-full w-73 bg-background border-r border-border z-50 flex flex-col p-4 pt-10">
+    <aside className="fixed left-4 top-0 h-full w-73 bg-background border-r border-border z-50 flex flex-col p-4 pt-10">
       {/* Profile Section */}
       <div className="space-y-2 mb-4 pb-4 pl-20">
         <div className="relative w-20 h-20 overflow-hidden rounded-full">

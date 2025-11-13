@@ -4,52 +4,52 @@
 @layer base {
   :root {
     color-scheme: light;
-    --color-primary-500: #3b82f6; /* Biru untuk gradient */
-    --color-secondary-500: #10b981; /* Hijau */
-    --color-accent-500: #8b5cf6; /* Ungu */
+    --color-primary-500: #000000; /* Hitam untuk gradient elegan */
+    --color-secondary-500: #808080; /* Abu-abu sedang */
+    --color-accent-500: #ffffff; /* Putih untuk aksen */
     --color-background: 0 0% 100%;
-    --color-foreground: 222.2 84% 4.9%;
+    --color-foreground: 0 0% 0%;
     --color-card: 0 0% 100%;
-    --color-card-foreground: 222.2 84% 4.9%;
+    --color-card-foreground: 0 0% 0%;
     --color-popover: 0 0% 100%;
-    --color-popover-foreground: 222.2 84% 4.9%;
-    --color-primary: 222.2 47.4% 11.2%;
-    --color-primary-foreground: 210 40% 98%;
-    --color-secondary: 210 40% 96%;
-    --color-secondary-foreground: 222.2 47.4% 11.2%;
-    --color-muted: 210 40% 96%;
-    --color-muted-foreground: 215.4 16.3% 46.9%;
-    --color-accent: 210 40% 96%;
-    --color-accent-foreground: 222.2 47.4% 11.2%;
-    --color-destructive: 0 84.2% 60.2%;
-    --color-destructive-foreground: 210 40% 98%;
-    --color-border: 214.3 31.8% 91.4%;
-    --color-input: 214.3 31.8% 91.4%;
-    --color-ring: 222.2 84% 4.9%;
+    --color-popover-foreground: 0 0% 0%;
+    --color-primary: 0 0% 0%;
+    --color-primary-foreground: 0 0% 100%;
+    --color-secondary: 0 0% 95%;
+    --color-secondary-foreground: 0 0% 0%;
+    --color-muted: 0 0% 95%;
+    --color-muted-foreground: 0 0% 45%;
+    --color-accent: 0 0% 95%;
+    --color-accent-foreground: 0 0% 0%;
+    --color-destructive: 0 0% 40%;
+    --color-destructive-foreground: 0 0% 100%;
+    --color-border: 0 0% 90%;
+    --color-input: 0 0% 90%;
+    --color-ring: 0 0% 0%;
     --radius: 0.5rem;
   }
 
   .dark {
     color-scheme: dark;
-    --color-background: 222.2 84% 4.9%;
-    --color-foreground: 210 40% 98%;
-    --color-card: 222.2 84% 4.9%;
-    --color-card-foreground: 210 40% 98%;
-    --color-popover: 222.2 84% 4.9%;
-    --color-popover-foreground: 210 40% 98%;
-    --color-primary: 210 40% 98%;
-    --color-primary-foreground: 222.2 47.4% 11.2%;
-    --color-secondary: 217.2 32.6% 17.5%;
-    --color-secondary-foreground: 210 40% 98%;
-    --color-muted: 217.2 32.6% 17.5%;
-    --color-muted-foreground: 215 20.2% 65.1%;
-    --color-accent: 217.2 32.6% 17.5%;
-    --color-accent-foreground: 210 40% 98%;
-    --color-destructive: 0 62.8% 30.6%;
-    --color-destructive-foreground: 210 40% 98%;
-    --color-border: 217.2 32.6% 17.5%;
-    --color-input: 217.2 32.6% 17.5%;
-    --color-ring: 212.7 26.8% 83.9%;
+    --color-background: 0 0% 0%;
+    --color-foreground: 0 0% 100%;
+    --color-card: 0 0% 0%;
+    --color-card-foreground: 0 0% 100%;
+    --color-popover: 0 0% 0%;
+    --color-popover-foreground: 0 0% 100%;
+    --color-primary: 0 0% 100%;
+    --color-primary-foreground: 0 0% 0%;
+    --color-secondary: 0 0% 10%;
+    --color-secondary-foreground: 0 0% 100%;
+    --color-muted: 0 0% 10%;
+    --color-muted-foreground: 0 0% 70%;
+    --color-accent: 0 0% 10%;
+    --color-accent-foreground: 0 0% 100%;
+    --color-destructive: 0 0% 30%;
+    --color-destructive-foreground: 0 0% 100%;
+    --color-border: 0 0% 10%;
+    --color-input: 0 0% 10%;
+    --color-ring: 0 0% 80%;
   }
 
   *,
@@ -65,12 +65,12 @@
   }
 }
 
-/* Custom gradient class (transparan modern) */
+/* Custom gradient class (transparan modern hitam-putih) */
 .gradient-bg {
   background-image: linear-gradient(
     135deg,
     rgba(var(--color-primary-500), 0.1) 0%,
     rgba(var(--color-secondary-500), 0.1) 50%,
-    rgba(var(--color-accent-500), 0.1) 100%
+    rgba(var(--color-accent-500), 0.05) 100%
   );
 }
