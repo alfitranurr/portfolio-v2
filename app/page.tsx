@@ -63,7 +63,7 @@ export default function Home() {
           <a
             href={publicUrl}
             download
-            className="flex items-center justify-center md:justify-start gap-2 px-4 py-2 rounded-full border border-border dark:border-white/20 shadow-sm hover:shadow-md transition bg-background text-foreground text-sm font-medium w-full md:w-auto"
+            className="flex items-center justify-center md:justify-start gap-2 px-4 py-2 rounded-full border border-border dark:border-white/30 shadow-sm hover:shadow-md transition bg-background text-foreground text-sm font-medium w-full md:w-auto"
           >
             <span>✨</span> Download My CV
             <ArrowRight className="w-4 h-4" />

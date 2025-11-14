@@ -32,7 +32,7 @@ export default function FeaturedSection() {
             key={index}
             className="shrink-0 w-full md:w-auto md:flex-1 snap-start md:snap-none"
           >
-            <Card className="p-4 gradient-bg overflow-hidden border-2 border-white/15 w-full mx-auto md:mx-0">
+            <Card className="p-4 gradient-bg overflow-hidden border-2 border-border dark:border-white/25 ring-1 ring-white/10 dark:ring-black/10 w-full mx-auto md:mx-0">
               <div className="relative w-full h-68 mb-3 rounded-lg">
                 <Image
                   src={item.image}
