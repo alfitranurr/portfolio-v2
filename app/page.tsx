@@ -49,7 +49,7 @@ export default function Home() {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="mt-0 md:mt-0 w-full mx-auto px-4 md:pl-6 lg:pl-10 md:pr-20"
+      className="mt-0 md:mt-0 w-full mx-auto px-4 md:pl-6 lg:pl-10 md:pr-20 pb-20 md:pb-0"
     >
       {/* ===== About Section ===== */}
       <motion.section

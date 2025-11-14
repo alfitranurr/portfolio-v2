@@ -1,5 +1,36 @@
 import { Card } from "./ui/Card";
 import Image from "next/image";
+import { motion, easeOut, Variants, useInView } from "framer-motion";
+import { useRef } from "react";
+
+const itemVariants: Variants = {
+  hidden: { y: 50, opacity: 0, filter: "blur(8px)" },
+  visible: {
+    y: 0,
+    opacity: 1,
+    filter: "blur(0px)",
+    transition: { duration: 0.8, ease: easeOut },
+  },
+};
+
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, filter: "blur(8px)" },
+  visible: {
+    opacity: 1,
+    filter: "blur(0px)",
+    transition: { duration: 0.6, ease: easeOut },
+  },
+};
 
 const featuredItems = [
   {
@@ -23,13 +54,31 @@ const featuredItems = [
 ];
 
 export default function FeaturedSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
   return (
-    <section className="py-8 w-full mx-auto text-center md:text-left">
-      <h2 className="text-xl font-bold mb-6 text-foreground">Featured</h2>
-      <div className="flex flex-row md:grid md:grid-cols-3 gap-4 w-full mx-auto overflow-x-auto md:overflow-visible scrollbar-hide snap-x snap-mandatory md:snap-none">
+    <section ref={ref} className="py-8 w-full mx-auto text-center md:text-left">
+      <motion.h2
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={itemVariants}
+        className="text-xl font-bold mb-6 text-foreground"
+      >
+        Featured
+      </motion.h2>
+      <motion.div
+        className="flex flex-row md:grid md:grid-cols-3 gap-4 w-full mx-auto overflow-x-auto md:overflow-visible scrollbar-hide snap-x snap-mandatory md:snap-none"
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
         {featuredItems.map((item, index) => (
-          <div
+          <motion.div
             key={index}
+            variants={cardVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
             className="shrink-0 w-full md:w-auto md:flex-1 snap-start md:snap-none"
           >
             <Card className="p-4 gradient-bg overflow-hidden border-2 border-border dark:border-white/25 ring-1 ring-white/10 dark:ring-black/10 w-full mx-auto md:mx-0">
@@ -49,9 +98,9 @@ export default function FeaturedSection() {
               </p>
               <p className="text-xs text-muted-foreground">{item.date}</p>
             </Card>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }
