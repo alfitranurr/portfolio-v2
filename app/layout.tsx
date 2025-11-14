@@ -26,7 +26,7 @@ export default function RootLayout({
           disableTransitionOnChange // Opsional: Hilangkan transisi saat switch tema (lebih smooth)
         >
           <Sidebar />
-          <main className="ml-64 p-8 min-h-screen">
+          <main className="ml-0 lg:ml-64 p-4 lg:p-8 min-h-screen mx-auto max-w-4xl lg:max-w-none">
             {" "}
             {/* Offset untuk sidebar */}
             {children}
