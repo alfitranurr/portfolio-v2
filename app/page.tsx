@@ -54,7 +54,7 @@ export default function Home() {
       {/* ===== About Section ===== */}
       <motion.section
         variants={itemVariants}
-        className="w-full py-0 mt-0 md:-mt-8 text-center md:text-left"
+        className="w-full py-0 mt-0 md:mt-8 text-center md:text-left"
       >
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-4">
           <h2 className="text-xl font-bold text-foreground text-center md:text-left">

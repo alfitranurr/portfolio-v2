@@ -29,7 +29,7 @@ const itemVariants = {
 
 export default function TechStacks() {
   return (
-    <motion.section variants={itemVariants} className="pt-10 pb-10 w-full">
+    <motion.section variants={itemVariants} className="pt-2 pb-10 w-full">
       <h2 className="text-xl font-bold mb-6 text-center md:text-left text-foreground">
         Tech Stacks that I have used
       </h2>
