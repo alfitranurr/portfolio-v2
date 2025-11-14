@@ -86,6 +86,13 @@ export default function TechStacks() {
     return [...baseDelays].sort(() => Math.random() - 0.5);
   }, [totalItems]);
 
+  const maskStyle = {
+    maskImage:
+      "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)",
+    WebkitMaskImage:
+      "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)",
+  };
+
   return (
     <section ref={ref} className="pt-2 pb-10 w-full">
       <motion.h2
@@ -105,7 +112,8 @@ export default function TechStacks() {
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               variants={itemVariants}
-              className="overflow-hidden"
+              className="overflow-hidden relative"
+              style={maskStyle}
             >
               <motion.div
                 className="flex"
