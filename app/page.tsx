@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, easeOut } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import FeaturedSection from "@/components/FeaturedSection";
 import TechStacks from "@/components/TechStacks";
@@ -12,9 +12,6 @@ import { createClient } from "@supabase/supabase-js";
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
-const {
-  data: { publicUrl },
-} = supabase.storage.from("cv").getPublicUrl("cv.pdf");
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -40,9 +37,21 @@ const itemVariants = {
 export default function Home() {
   const pathname = usePathname();
 
+  // 🔥 state untuk menyimpan public URL
+  const [publicUrl, setPublicUrl] = useState<string | null>(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  // 🔥 fetch public URL, cara yang benar
+  useEffect(() => {
+    const { data } = supabase.storage
+      .from("Home Page")
+      .getPublicUrl("CV - Al Fitra Nur Ramadhani - September 2025.pdf");
+
+    setPublicUrl(data.publicUrl);
+  }, []);
 
   return (
     <motion.div
@@ -60,15 +69,20 @@ export default function Home() {
           <h2 className="text-xl font-bold text-foreground text-center md:text-left">
             About Me
           </h2>
+
+          {/* 🔥 tombol download — open in new tab */}
           <a
-            href={publicUrl}
+            href={publicUrl ?? "#"}
             download
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center justify-center md:justify-start gap-2 px-4 py-2 rounded-full border border-border dark:border-white/30 shadow-sm hover:shadow-md transition bg-background text-foreground text-sm font-medium w-full md:w-auto"
           >
             <span>✨</span> Download My CV
             <ArrowRight className="w-4 h-4" />
           </a>
         </div>
+
         <p className="text-base leading-relaxed text-foreground text-justify md:text-left">
           An Informatics undergraduate at the University of Muhammadiyah Malang,
           currently in the 7th semester, showcasing a strong passion and
