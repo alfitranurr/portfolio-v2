@@ -125,7 +125,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 variants={itemVariants}
-                className="flex flex-col items-center pt-0 pb-6 px-0 border border-border dark:border-white/30 rounded-lg shadow-sm hover:shadow-md transition-all bg-background text-foreground text-center group"
+                className="flex flex-col items-center pt-0 pb-6 px-0 border border-gray-400 dark:border-white/30 rounded-lg shadow-md hover:shadow-xl transition-all bg-background text-foreground text-center group"
               >
                 {isImage ? (
                   <>
