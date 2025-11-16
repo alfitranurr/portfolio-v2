@@ -105,62 +105,70 @@ export default function Contact() {
       className="mt-0 md:mt-0 w-full mx-auto px-4 md:pl-6 lg:pl-10 md:pr-20 pb-20 md:pb-0"
     >
       {/* ===== Contact Section ===== */}
-      <motion.section
-        variants={itemVariants}
-        className="w-full py-0 mt-0 md:mt-8 text-center md:text-left"
-      >
-        <h2 className="text-xl font-bold text-foreground text-center md:text-left mb-8">
+      <section className="w-full py-0 mt-0 md:mt-8 text-center md:text-left">
+        <motion.h2
+          variants={itemVariants}
+          className="text-xl font-bold text-foreground text-center md:text-left mb-8"
+        >
           Contact Me
-        </h2>
+        </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {socialLinks.map((social) => {
+        <motion.div
+          variants={containerVariants}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
+          {socialLinks.map((social, index) => {
             const imageSrc = images[social.name];
             const isImage = !!imageSrc;
 
             return (
-              <motion.a
-                key={social.name}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                variants={itemVariants}
-                className="flex flex-col items-center pt-0 pb-6 px-0 border border-gray-400 dark:border-white/30 rounded-lg shadow-md hover:shadow-xl transition-all bg-background text-foreground text-center group"
-              >
-                {isImage ? (
-                  <>
-                    <div className="w-full h-40 overflow-hidden rounded-t-lg mb-4 relative">
-                      <img
-                        src={imageSrc}
-                        alt={`${social.name} Profile Image`}
-                        className="w-full h-full object-cover object-top transition-all duration-500 ease-out group-hover:scale-110"
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-linear-to-t from-black/40 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none z-10"></div>
-                    </div>
-                    <div className="w-full px-6 flex items-center justify-center gap-2">
-                      <social.icon className="w-5 h-5 text-primary shrink-0" />
-                      <h3 className="text-lg font-semibold">{social.name}</h3>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div className="w-full h-40 flex items-center justify-center mb-4">
-                      <div className="w-20 h-20 rounded-full flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-110">
-                        <social.icon className="w-16 h-16 text-primary" />
+              <motion.div key={social.name} variants={itemVariants}>
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center pt-0 pb-6 px-0 border border-gray-400 dark:border-white/30 rounded-lg shadow-md hover:shadow-xl transition-all bg-background text-foreground text-center group"
+                >
+                  {isImage ? (
+                    <>
+                      <div className="w-full h-40 overflow-hidden rounded-t-lg mb-4 relative">
+                        <motion.img
+                          src={imageSrc}
+                          alt={`${social.name} Profile Image`}
+                          whileHover={{ scale: 1.1 }}
+                          transition={{
+                            duration: 0.6,
+                            ease: [0.25, 0.1, 0.25, 1], // Custom ease for smoother zoom (similar to easeOut with more control)
+                          }}
+                          className="w-full h-full object-cover object-top"
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-linear-to-t from-black/40 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out pointer-events-none z-10"></div>
                       </div>
-                    </div>
-                    <div className="w-full px-6 text-center">
-                      <h3 className="text-lg font-semibold mb-2">
-                        {social.name}
-                      </h3>
-                    </div>
-                  </>
-                )}
-              </motion.a>
+                      <div className="w-full px-6 flex items-center justify-center gap-2">
+                        <social.icon className="w-5 h-5 text-primary shrink-0" />
+                        <h3 className="text-lg font-semibold">{social.name}</h3>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="w-full h-40 flex items-center justify-center mb-4">
+                        <div className="w-20 h-20 rounded-full flex items-center justify-center transition-transform duration-300 ease-in-out group-hover:scale-110">
+                          <social.icon className="w-16 h-16 text-primary" />
+                        </div>
+                      </div>
+                      <div className="w-full px-6 text-center">
+                        <h3 className="text-lg font-semibold mb-2">
+                          {social.name}
+                        </h3>
+                      </div>
+                    </>
+                  )}
+                </a>
+              </motion.div>
             );
           })}
-        </div>
-      </motion.section>
+        </motion.div>
+      </section>
     </motion.div>
   );
 }

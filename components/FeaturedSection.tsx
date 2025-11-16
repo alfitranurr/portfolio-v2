@@ -1,7 +1,9 @@
 import { Card } from "./ui/Card";
-import Image from "next/image";
+import Image, { type ImageProps } from "next/image";
 import { motion, easeOut, Variants, useInView } from "framer-motion";
 import { useRef } from "react";
+
+const MotionImage = motion(Image);
 
 const itemVariants: Variants = {
   hidden: { y: 50, opacity: 0, filter: "blur(8px)" },
@@ -81,14 +83,20 @@ export default function FeaturedSection() {
             animate={isInView ? "visible" : "hidden"}
             className="shrink-0 w-full md:w-auto md:flex-1 snap-start md:snap-none"
           >
-            <Card className="p-4 gradient-bg overflow-hidden border-2 border-border dark:border-white/25 ring-1 ring-white/10 dark:ring-black/10 w-full mx-auto md:mx-0">
-              <div className="relative w-full h-68 mb-3 rounded-lg">
-                <Image
+            <Card className="p-4 gradient-bg overflow-hidden border-2 border-border dark:border-white/25 ring-1 ring-white/10 dark:ring-black/10 w-full mx-auto md:mx-0 group">
+              <div className="relative w-full h-68 mb-3 rounded-lg overflow-hidden">
+                <MotionImage
                   src={item.image}
                   alt={item.title}
                   fill
                   className="object-cover"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{
+                    duration: 0.6,
+                    ease: [0.25, 0.1, 0.25, 1],
+                  }}
                 />
+                <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-linear-to-t from-black/40 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out pointer-events-none z-10"></div>
               </div>
               <h3 className="font-semibold mt-2 text-base text-foreground">
                 {item.title}
