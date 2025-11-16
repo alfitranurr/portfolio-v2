@@ -83,28 +83,26 @@ export default function FeaturedSection() {
             animate={isInView ? "visible" : "hidden"}
             className="shrink-0 w-full md:w-auto md:flex-1 snap-start md:snap-none"
           >
-            <Card className="p-4 gradient-bg overflow-hidden border-2 border-border dark:border-white/25 ring-1 ring-white/10 dark:ring-black/10 w-full mx-auto md:mx-0 group">
-              <div className="relative w-full h-68 mb-3 rounded-lg overflow-hidden">
-                <MotionImage
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="object-cover"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{
-                    duration: 0.6,
-                    ease: [0.25, 0.1, 0.25, 1],
-                  }}
-                />
-                <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-linear-to-t from-black/40 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out pointer-events-none z-10"></div>
+            <Card className="relative h-72 md:h-96 overflow-hidden border-2 border-border dark:border-white/25 ring-1 ring-white/10 dark:ring-black/10 w-full mx-auto md:mx-0 group gradient-bg">
+              <MotionImage
+                src={item.image}
+                alt={item.title}
+                fill
+                className="object-cover"
+                whileHover={{ scale: 1.1 }}
+                transition={{
+                  duration: 0.6,
+                  ease: [0.25, 0.1, 0.25, 1],
+                }}
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out pointer-events-none z-10"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-4 text-white z-20">
+                <h3 className="font-semibold text-base mb-1">{item.title}</h3>
+                <p className="text-sm mb-1 leading-relaxed">
+                  {item.description}
+                </p>
+                <p className="text-xs">{item.date}</p>
               </div>
-              <h3 className="font-semibold mt-2 text-base text-foreground">
-                {item.title}
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                {item.description}
-              </p>
-              <p className="text-xs text-muted-foreground">{item.date}</p>
             </Card>
           </motion.div>
         ))}

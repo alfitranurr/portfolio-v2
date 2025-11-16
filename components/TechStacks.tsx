@@ -130,10 +130,17 @@ export default function TechStacks() {
                         opacity: 0,
                         filter: "blur(8px)",
                       }}
-                      animate={{
-                        opacity: 1,
-                        filter: "blur(0px)",
-                      }}
+                      animate={
+                        isInView
+                          ? {
+                              opacity: 1,
+                              filter: "blur(0px)",
+                            }
+                          : {
+                              opacity: 0,
+                              filter: "blur(8px)",
+                            }
+                      }
                       transition={{
                         duration: 0.5,
                         ease: easeOut,
