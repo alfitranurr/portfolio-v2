@@ -120,7 +120,7 @@ export default function Experience() {
 
         <motion.div
           variants={itemVariants}
-          className="relative w-full h-[500px] mx-auto overflow-hidden mt-4"
+          className="relative w-full h-[300px] md:h-[500px] mx-auto overflow-hidden mt-4"
           style={{ perspective: "1000px" }}
         >
           {currentCertificates.map((cert, i) => {
