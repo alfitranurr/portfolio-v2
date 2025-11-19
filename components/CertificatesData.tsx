@@ -9,7 +9,7 @@ export const categories = [
       },
       {
         certName: "Certificate 2",
-        image: "Competition - 4C FILKOM UB - 2024-1.png",
+        image: "Competition - 4C FILKOM UB - 2024.png",
       },
       {
         certName: "Certificate 3",
@@ -48,15 +48,15 @@ export const categories = [
     certificates: [
       {
         certName: "Certificate 1",
-        image: "Seritifikat Hafalan 30 Juz.jpg", 
+        image: "Seminar & Workshop - Quality Assurance.png",
       },
       {
         certName: "Certificate 2",
-        image: "Certificate - SIC INDICATION - 2024.jpg",
+        image: "Seminar & Workshop - Career Next with Jobstreet and P&G.png",
       },
       {
         certName: "Certificate 3",
-        image: "Sertifikat Hafalan Quran 30 Juz Sekali Duduk.jpg",
+        image: "Seminar & Workshop - AI Ignition.png",
       },
       // Add more for this category as needed
     ],
@@ -66,15 +66,55 @@ export const categories = [
     certificates: [
       {
         certName: "Certificate 1",
-        image: "license1.jpg", 
+        image:
+          "License & Certification - Lab Informatics UMM - Struktur Data.png",
       },
       {
         certName: "Certificate 2",
-        image: "certification1.jpg",
+        image:
+          "License & Certification - Lab Informatics UMM - Sistem Operasi.png",
       },
       {
         certName: "Certificate 3",
-        image: "license2.jpg",
+        image:
+          "License & Certification - Lab Informatics UMM - Pemrograman Web.png",
+      },
+      {
+        certName: "Certificate 4",
+        image:
+          "License & Certification - Lab Informatics UMM - Pemrograman Lanjut.png",
+      },
+      {
+        certName: "Certificate 5",
+        image:
+          "License & Certification - Lab Informatics UMM - Pemrograman Dasar.png",
+      },
+      {
+        certName: "Certificate 6",
+        image:
+          "License & Certification - Lab Informatics UMM - Pemrograman Berorientasi Obyek.png",
+      },
+      {
+        certName: "Certificate 7",
+        image:
+          "License & Certification - Lab Informatics UMM - Jaringan Komputer.png",
+      },
+      {
+        certName: "Certificate 8",
+        image: "License & Certification - Lab Informatics UMM - Basis Data.png",
+      },
+      {
+        certName: "Certificate 9",
+        image: "License & Certification - Datawarehouse The Ultimate Guide.png",
+      },
+      {
+        certName: "Certificate 10",
+        image: "License & Certification - Oracle Academy_Database - 2024.png",
+      },
+      {
+        certName: "Certificate 11",
+        image:
+          "License & Certification - PBI Big Data Analytics Rakamin Academy x Kimia Farma.png",
       },
       // Add more for this category as needed
     ],
@@ -84,15 +124,11 @@ export const categories = [
     certificates: [
       {
         certName: "Certificate 1",
-        image: "committee1.jpg", 
+        image: "Committee & Organization - Jatim Developer Day 2024.png",
       },
       {
         certName: "Certificate 2",
-        image: "organization1.jpg",
-      },
-      {
-        certName: "Certificate 3",
-        image: "committee2.jpg",
+        image: "Committee & Organization - Rumah Kepemimpinan Scholarship.png",
       },
       // Add more for this category as needed
     ],
