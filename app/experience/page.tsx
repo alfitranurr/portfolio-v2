@@ -119,7 +119,7 @@ export default function Experience() {
         const expanded = isExpanded(index);
         return (
           <motion.div key={index} variants={itemVariants}>
-            <div className="flex flex-col dark:border-white/30 dark:hover:border-gray-400 rounded-lg shadow-md hover:shadow-xl transition-all bg-background text-foreground group overflow-hidden cursor-pointer">
+            <div className="flex flex-col border border-gray-400 dark:border-white/30 rounded-lg shadow-md hover:shadow-xl transition-all bg-background text-foreground group overflow-hidden cursor-pointer">
               {/* Header */}
               <div
                 className="flex items-start p-4 md:p-6 gap-3 md:gap-4 bg-linear-to-br from-primary/5 to-secondary/5 hover:bg-primary/10 transition-colors"
