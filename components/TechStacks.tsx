@@ -24,7 +24,7 @@ const itemVariants = {
     y: 0,
     opacity: 1,
     filter: "blur(0px)",
-    transition: { duration: 0.8, ease: easeOut },
+    transition: { duration: 0.5, ease: easeOut },
   },
 };
 
@@ -53,26 +53,39 @@ const ltrVariants: Variants = {
 };
 
 const techItems = [
-  { icon: Code, label: "Next.js" },
+  { icon: Code, label: "Google Colab" },
+  { icon: Presentation, label: "Ms. Power Point" },
+  { icon: FileSpreadsheet, label: "Ms. Excel" },
+  { icon: Database, label: "Google BigQuery" },
+  { icon: Braces, label: "TypeScript" },
   { icon: Atom, label: "React" },
   { icon: Palette, label: "Tailwind" },
-  { icon: Database, label: "Supabase" },
-  { icon: Braces, label: "TypeScript" },
-  { icon: Server, label: "Node.js" },
+  { icon: Coffee, label: "JavaScript" },
+  { icon: Settings, label: "DBeaver" },
+  { icon: Database, label: "PostgreSQL" },
   { icon: Box, label: "Docker" },
+  { icon: Server, label: "n8n" },
+  { icon: Server, label: "Node.js" },
+  { icon: Code, label: "Next.js" },
+  { icon: BarChart2, label: "Tableau" },
+  { icon: BarChart3, label: "Looker Studio" },
+  { icon: BarChart2, label: "Power BI" },
   { icon: ImageIcon, label: "Canva" },
   { icon: PenTool, label: "Figma" },
   { icon: Code, label: "Python" },
-  { icon: BarChart3, label: "Looker Studio" },
-  { icon: Settings, label: "DBeaver" },
-  { icon: Database, label: "PostgreSQL" },
-  { icon: Code, label: "Google Colab" },
-  { icon: Coffee, label: "JavaScript" },
   { icon: Database, label: "MySQL" },
-  { icon: BarChart2, label: "Tableau" },
-  { icon: Database, label: "BigQuery" },
-  { icon: FileSpreadsheet, label: "Ms. Excel" },
-  { icon: Presentation, label: "Ms. PowerPoint" },
+  { icon: Database, label: "Supabase" },
+  { icon: Server, label: "Flask" },
+  { icon: Code, label: "Streamlit" },
+  { icon: Braces, label: "TensorFlow" },
+  { icon: Code, label: "SciPy" },
+  { icon: Code, label: "Scikit-learn" },
+  { icon: Code, label: "PyTorch" },
+  { icon: FileSpreadsheet, label: "Pandas" },
+  { icon: Code, label: "NumPy" },
+  { icon: Settings, label: "MLflow" },
+  { icon: BarChart3, label: "Matplotlib" },
+  { icon: Code, label: "Keras" },
 ];
 
 export default function TechStacks() {
@@ -82,7 +95,7 @@ export default function TechStacks() {
   const totalItemsPerRow = useMemo(() => techItems.length * 2, []);
   const totalItems = useMemo(() => 3 * totalItemsPerRow, [totalItemsPerRow]);
   const shuffledDelays = useMemo(() => {
-    const baseDelays = Array.from({ length: totalItems }, (_, i) => i * 0.05);
+    const baseDelays = Array.from({ length: totalItems }, (_, i) => i * 0.02);
     return [...baseDelays].sort(() => Math.random() - 0.5);
   }, [totalItems]);
 
@@ -142,12 +155,12 @@ export default function TechStacks() {
                             }
                       }
                       transition={{
-                        duration: 0.5,
+                        duration: 0.3,
                         ease: easeOut,
                         delay: currentDelay,
                       }}
                       whileHover={{ scale: 1.05 }}
-                      className="flex items-center justify-center gap-2 p-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground shrink-0 mx-2"
+                      className="flex items-center justify-center gap-2 px-4 py-2 border border-border dark:border-white/20 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition bg-background text-foreground shrink-0 mx-2"
                     >
                       <item.icon className="w-4 h-4 shrink-0" />
                       <span>{item.label}</span>
