@@ -5,7 +5,7 @@ export const categories = [
     certificates: [
       {
         certName: "Certificate 1",
-        image: "Competition - 1st Winner of PKP2 PTMA PKM KC-1.png",
+        image: "Competition - 1st Winner of PKP2 PTMA PKM KC.png",
       },
       {
         certName: "Certificate 2",
@@ -21,7 +21,7 @@ export const categories = [
       },
       {
         certName: "Certificate 5",
-        image: "Competition - Kimia Kovalen UNS - 2019-1.png",
+        image: "Competition - Kimia Kovalen UNS - 2019.png",
       },
       {
         certName: "Certificate 6",
@@ -29,12 +29,12 @@ export const categories = [
       },
       {
         certName: "Certificate 7",
-        image: "Competition - Peserta PKP2 PTMA PKM KC-1.png",
+        image: "Competition - Peserta PKP2 PTMA PKM KC.png",
       },
       {
         certName: "Certificate 8",
         image:
-          "Competition - Qualified for the University Level PKM KC 2025-1.png",
+          "Competition - Qualified for the University Level PKM KC 2025.png",
       },
       {
         certName: "Certificate 9",
