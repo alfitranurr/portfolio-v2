@@ -116,7 +116,10 @@ export const categories = [
         image:
           "License & Certification - PBI Big Data Analytics Rakamin Academy x Kimia Farma.png",
       },
-      // Add more for this category as needed
+      {
+        certName: "Certificate 12",
+        image: "License & Certification - KarirNex Bootcamp Excel 2024.png",
+      },
     ],
   },
   {

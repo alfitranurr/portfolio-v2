@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { supabase } from "@/lib/supabase"; // Adjust the import path to your Supabase client setup
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { categories } from "@/components/CertificatesData";
 
 const containerVariants = {
@@ -30,6 +30,20 @@ const itemVariants = {
   },
 };
 
+const modalVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.3, ease: easeOut },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.8,
+    transition: { duration: 0.2 },
+  },
+};
+
 export default function Experience() {
   const pathname = usePathname();
   const { theme } = useTheme();
@@ -37,6 +51,10 @@ export default function Experience() {
   const [images, setImages] = useState<{ [key: string]: string }>({});
   const [activeCategory, setActiveCategory] = useState(0);
   const [current, setCurrent] = useState(0);
+  const [selectedImage, setSelectedImage] = useState<{
+    url: string;
+    name: string;
+  } | null>(null);
 
   const isDark = mounted ? theme === "dark" : false;
 
@@ -102,6 +120,14 @@ export default function Experience() {
     setActiveCategory(index);
   };
 
+  const handleImageClick = (url: string, name: string) => {
+    setSelectedImage({ url, name });
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+  };
+
   return (
     <motion.div
       variants={containerVariants}
@@ -158,11 +184,12 @@ export default function Experience() {
                 transition={{ duration: 0.5, ease: easeOut }}
               >
                 {imageSrc ? (
-                  <div className="w-full max-w-2xl h-full p-4 border-4 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 shadow-lg">
+                  <div className="w-full max-w-2xl h-full p-4 border-4 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 shadow-lg cursor-pointer">
                     <img
                       src={imageSrc}
                       alt={`${cert.certName} Certificate`}
                       className="w-full h-full object-contain"
+                      onClick={() => handleImageClick(imageSrc, cert.certName)}
                     />
                   </div>
                 ) : (
@@ -227,6 +254,36 @@ export default function Experience() {
           ))}
         </motion.div>
       </section>
+
+      {/* Zoom Modal */}
+      {selectedImage && (
+        <motion.div
+          variants={modalVariants}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          onClick={closeModal}
+        >
+          <motion.div
+            className="relative max-w-4xl max-h-full p-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={closeModal}
+              className="absolute -top-4 -right-4 z-10 p-2 rounded-full bg-white/90 dark:bg-black/90 hover:bg-white dark:hover:bg-black transition-colors cursor-pointer"
+              aria-label="Close modal"
+            >
+              <X className="w-6 h-6 text-gray-800 dark:text-gray-200" />
+            </button>
+            <img
+              src={selectedImage.url}
+              alt={selectedImage.name}
+              className="w-full h-auto max-h-[90vh] object-contain rounded-lg shadow-2xl cursor-zoom-in"
+            />
+          </motion.div>
+        </motion.div>
+      )}
     </motion.div>
   );
 }
