@@ -3,7 +3,9 @@
 import { motion, easeOut, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import { Card } from "@/components/ui/Card";
 import {
   dataAnalyticsProjects,
   dataVisualizationProjects,
@@ -13,6 +15,9 @@ import {
   digitalMarketingProjects,
   graphicDesignProjects,
 } from "@/components/ProjectsData";
+
+const MotionImage = motion(Image);
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -23,6 +28,7 @@ const containerVariants = {
     },
   },
 };
+
 const itemVariants = {
   hidden: { y: 50, opacity: 0, filter: "blur(8px)" },
   visible: {
@@ -32,10 +38,16 @@ const itemVariants = {
     transition: { duration: 0.8, ease: easeOut },
   },
 };
-const descriptionVariants = {
-  collapsed: { height: 0, opacity: 0 },
-  expanded: { height: "auto", opacity: 1 },
+
+const cardVariants = {
+  hidden: { opacity: 0, filter: "blur(8px)" },
+  visible: {
+    opacity: 1,
+    filter: "blur(0px)",
+    transition: { duration: 0.6, ease: easeOut },
+  },
 };
+
 export default function Projects() {
   const pathname = usePathname();
   const [activeTab, setActiveTab] = useState<
@@ -47,7 +59,6 @@ export default function Projects() {
     | "digital-marketing"
     | "graphic-design"
   >("data-analytics");
-  const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set());
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
   const [isMobile, setIsMobile] = useState(false);
   const [isAtStart, setIsAtStart] = useState(true);
@@ -94,9 +105,6 @@ export default function Projects() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-  useEffect(() => {
-    setExpandedCards(new Set());
-  }, [activeTab]);
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
@@ -149,90 +157,42 @@ export default function Projects() {
       return () => clearTimeout(scrollTimeout);
     }
   }, [activeTab, isMobile]);
-  const toggleExpanded = (index: number) => {
-    const key = `${activeTab}-${index}`;
-    const newSet = new Set(expandedCards);
-    if (newSet.has(key)) {
-      newSet.delete(key);
-    } else {
-      newSet.add(key);
-    }
-    setExpandedCards(newSet);
-  };
-  const isExpanded = (index: number) => {
-    return expandedCards.has(`${activeTab}-${index}`);
-  };
   const renderCards = (items: any[]) => (
     <motion.div
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
+      className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6"
     >
-      {items.map((item, index) => {
-        const Icon = item.icon;
-        const expanded = isExpanded(index);
-        return (
-          <motion.div key={index} variants={itemVariants}>
-            <div className="flex flex-col border border-gray-400 dark:border-white/30 rounded-lg shadow-md hover:shadow-xl transition-all bg-background text-foreground group overflow-hidden cursor-pointer">
-              {/* Header */}
-              <div
-                className="flex items-start p-4 md:p-6 gap-3 md:gap-4 bg-linear-to-br from-primary/5 to-secondary/5 hover:bg-primary/10 transition-colors"
-                onClick={() => toggleExpanded(index)}
-              >
-                <div className="shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-lg bg-white dark:bg-gray-800 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
-                  {item.logo ? (
-                    <img
-                      src={`/logos/${item.logo}.png`} // Assume logos are in public/logos folder
-                      alt={`${item.company} logo`}
-                      className="w-8 h-8 md:w-10 md:h-10 object-contain"
-                    />
-                  ) : (
-                    <Icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
-                  )}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-sm md:text-lg font-semibold mb-1 text-foreground">
-                    {item.role}
-                  </h3>
-                  <p className="text-xs md:text-sm text-muted-foreground mb-2 md:mb-3">
-                    {item.company}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <p className="text-xs md:text-sm text-muted-foreground">
-                      {item.dates}
-                    </p>
-                    <ChevronDown
-                      className={`w-3 h-3 md:w-4 md:h-4 text-muted-foreground transition-transform duration-300 ${
-                        expanded ? "rotate-180" : ""
-                      }`}
-                    />
-                  </div>
-                </div>
-              </div>
-              {/* Description */}
-              <AnimatePresence initial={false}>
-                {expanded && (
-                  <motion.div
-                    variants={descriptionVariants}
-                    initial="collapsed"
-                    animate="expanded"
-                    exit="collapsed"
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="overflow-hidden"
-                  >
-                    <div className="p-4 md:p-6 pt-0">
-                      <p className="text-xs md:text-sm leading-relaxed text-foreground/80">
-                        {item.description}
-                      </p>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+      {items.map((item, index) => (
+        <motion.div
+          key={index}
+          variants={cardVariants}
+          initial="hidden"
+          animate="visible"
+          className="w-full"
+        >
+          <Card className="relative h-72 md:h-96 overflow-hidden border-2 border-border dark:border-white/25 ring-1 ring-white/10 dark:ring-black/10 w-full mx-auto md:mx-0 group gradient-bg cursor-pointer">
+            <MotionImage
+              src={item.image || "/profile.jpg"} // Ganti dengan image dari public atau Supabase; fallback ke default
+              alt={item.title || item.role}
+              fill
+              className="object-cover"
+              whileHover={{ scale: 1.1 }}
+              transition={{
+                duration: 0.6,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
+            />
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out pointer-events-none z-10"></div>
+            <div className="absolute bottom-0 left-0 right-0 p-4 text-white z-20">
+              <h3 className="font-semibold text-xl">
+                {item.title || item.role}
+              </h3>
             </div>
-          </motion.div>
-        );
-      })}
+          </Card>
+        </motion.div>
+      ))}
     </motion.div>
   );
   return (
