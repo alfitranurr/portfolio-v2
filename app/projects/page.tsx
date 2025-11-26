@@ -15,9 +15,7 @@ import {
   digitalMarketingProjects,
   graphicDesignProjects,
 } from "@/components/ProjectsData";
-
 const MotionImage = motion(Image);
-
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -28,7 +26,6 @@ const containerVariants = {
     },
   },
 };
-
 const itemVariants = {
   hidden: { y: 50, opacity: 0, filter: "blur(8px)" },
   visible: {
@@ -38,16 +35,6 @@ const itemVariants = {
     transition: { duration: 0.8, ease: easeOut },
   },
 };
-
-const cardVariants = {
-  hidden: { opacity: 0, filter: "blur(8px)" },
-  visible: {
-    opacity: 1,
-    filter: "blur(0px)",
-    transition: { duration: 0.6, ease: easeOut },
-  },
-};
-
 export default function Projects() {
   const pathname = usePathname();
   const [activeTab, setActiveTab] = useState<
@@ -165,13 +152,7 @@ export default function Projects() {
       className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6"
     >
       {items.map((item, index) => (
-        <motion.div
-          key={index}
-          variants={cardVariants}
-          initial="hidden"
-          animate="visible"
-          className="w-full"
-        >
+        <motion.div key={index} variants={itemVariants} className="w-full">
           <Card className="relative h-72 md:h-96 overflow-hidden border-2 border-border dark:border-white/25 ring-1 ring-white/10 dark:ring-black/10 w-full mx-auto md:mx-0 group gradient-bg cursor-pointer">
             <MotionImage
               src={item.image || "/profile.jpg"} // Ganti dengan image dari public atau Supabase; fallback ke default
