@@ -212,7 +212,7 @@ export default function Experience() {
           <div className="flex items-center gap-4">
             <button
               onClick={prev}
-              className="p-3 rounded-full bg-background border border-gray-400 dark:border-white/30 hover:bg-accent transition-colors cursor-pointer"
+              className="p-3 rounded-full bg-background border border-gray-400 dark:border-white/30 shadow-sm shadow-black/5 dark:shadow-black/30 hover:bg-accent hover:shadow-md transition-colors cursor-pointer"
               aria-label="Previous certificate"
             >
               <ChevronLeft className="w-6 h-6 text-foreground" />
@@ -222,7 +222,7 @@ export default function Experience() {
             </span>
             <button
               onClick={next}
-              className="p-3 rounded-full bg-background border border-gray-400 dark:border-white/30 hover:bg-accent transition-colors cursor-pointer"
+              className="p-3 rounded-full bg-background border border-gray-400 dark:border-white/30 shadow-sm shadow-black/5 dark:shadow-black/30 hover:bg-accent hover:shadow-md transition-colors cursor-pointer"
               aria-label="Next certificate"
             >
               <ChevronRight className="w-6 h-6 text-foreground" />
