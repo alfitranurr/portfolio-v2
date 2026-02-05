@@ -76,10 +76,11 @@ export default function Home() {
             download
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center md:justify-start gap-2 px-4 py-2 rounded-full border border-border dark:border-white/30 shadow-sm hover:shadow-md transition bg-background text-foreground text-sm font-medium w-full md:w-auto"
+            className="group flex items-center justify-center md:justify-start gap-2 px-4 py-2 rounded-full border border-border dark:border-white/30 shadow-sm hover:shadow-md transition bg-background text-foreground text-sm font-medium w-full md:w-auto"
           >
-            <span>✨</span> Download My CV
-            <ArrowRight className="w-4 h-4" />
+            <span className="transition group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]">✨</span>
+            <span className="transition group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]">Download My CV</span>
+            <ArrowRight className="w-4 h-4 transition group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]" />
           </a>
         </div>
 
@@ -108,3 +109,4 @@ export default function Home() {
     </motion.div>
   );
 }
+
