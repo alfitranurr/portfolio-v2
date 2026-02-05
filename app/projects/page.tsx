@@ -50,6 +50,7 @@ export default function Projects() {
   const [isMobile, setIsMobile] = useState(false);
   const [isAtStart, setIsAtStart] = useState(true);
   const [isAtEnd, setIsAtEnd] = useState(false);
+  const [isScrollable, setIsScrollable] = useState(false);
   const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const tabsContainerRef = useRef<HTMLDivElement>(null);
   const tabs = [
@@ -101,17 +102,18 @@ export default function Projects() {
   // Scroll listener for arrow states and indicator update
   useEffect(() => {
     const container = tabsContainerRef.current;
-    if (!container || !isMobile) return;
+    if (!container) return;
     const handleScroll = () => {
       const { scrollLeft, scrollWidth, clientWidth } = container;
       setIsAtStart(scrollLeft === 0);
       setIsAtEnd(scrollLeft >= scrollWidth - clientWidth - 1); // tolerance for floating point
+      setIsScrollable(scrollWidth > clientWidth + 1);
       updateIndicator();
     };
     container.addEventListener("scroll", handleScroll);
     handleScroll(); // initial state
     return () => container.removeEventListener("scroll", handleScroll);
-  }, [isMobile, activeTab]); // Add activeTab to deps to re-init on tab change
+  }, [activeTab]); // Re-init on tab change
   const updateIndicator = () => {
     const activeIndex = tabs.findIndex((tab) => tab.key === activeTab);
     const button = buttonRefs.current[activeIndex];
@@ -131,7 +133,7 @@ export default function Projects() {
     const activeIndex = tabs.findIndex((tab) => tab.key === activeTab);
     const button = buttonRefs.current[activeIndex];
     const container = tabsContainerRef.current;
-    if (button && container && isMobile) {
+    if (button && container) {
       const { offsetLeft, offsetWidth } = button;
       const center = offsetLeft + offsetWidth / 2 - container.clientWidth / 2;
       const maxScroll = container.scrollWidth - container.clientWidth;
@@ -143,7 +145,7 @@ export default function Projects() {
       const scrollTimeout = setTimeout(updateIndicator, 300);
       return () => clearTimeout(scrollTimeout);
     }
-  }, [activeTab, isMobile]);
+  }, [activeTab]);
   const renderCards = (items: any[]) => (
     <motion.div
       variants={containerVariants}
@@ -186,11 +188,7 @@ export default function Projects() {
       {/* ===== Projects Section ===== */}
       <section className="w-full py-0 mt-0 md:mt-8 text-center md:text-left">
         {/* Tabs */}
-        <div
-          className={`relative ${
-            isMobile ? "w-full" : "w-fit mx-auto md:ml-0"
-          } rounded-full bg-white dark:bg-zinc-800 px-4 py-1 mb-8 overflow-hidden`}
-        >
+        <div className="relative w-full max-w-full rounded-full bg-white dark:bg-zinc-800 px-4 py-1 mb-8 overflow-hidden">
           <motion.div
             className="absolute inset-y-2 bg-black dark:bg-white rounded-full z-0"
             style={indicatorStyle}
@@ -200,9 +198,7 @@ export default function Projects() {
           />
           <div
             ref={tabsContainerRef}
-            className={
-              isMobile ? "flex overflow-x-auto scrollbar-hide" : "flex"
-            }
+            className="flex items-center overflow-x-auto overflow-y-hidden scrollbar-hide"
           >
             {tabs.map((tab, index) => (
               <button
@@ -221,7 +217,7 @@ export default function Projects() {
               </button>
             ))}
           </div>
-          {isMobile && (
+          {isScrollable && (
             <>
               <button
                 onClick={() => {
@@ -232,10 +228,10 @@ export default function Projects() {
                     });
                   }
                 }}
-                className={`absolute left-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-6 h-6 bg-background/80 backdrop-blur-sm rounded-full text-muted-foreground transition-all shadow-md ${
+                className={`absolute left-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-6 h-6 bg-black/60 backdrop-blur-sm rounded-full text-white transition-all shadow-md ${
                   isAtStart
                     ? "opacity-50 cursor-not-allowed pointer-events-none"
-                    : "hover:text-foreground hover:bg-accent"
+                    : "hover:bg-black/80"
                 }`}
               >
                 <ChevronLeft className="w-3 h-3" />
@@ -249,10 +245,10 @@ export default function Projects() {
                     });
                   }
                 }}
-                className={`absolute right-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-6 h-6 bg-background/80 backdrop-blur-sm rounded-full text-muted-foreground transition-all shadow-md ${
+                className={`absolute right-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-6 h-6 bg-black/60 backdrop-blur-sm rounded-full text-white transition-all shadow-md ${
                   isAtEnd
                     ? "opacity-50 cursor-not-allowed pointer-events-none"
-                    : "hover:text-foreground hover:bg-accent"
+                    : "hover:bg-black/80"
                 }`}
               >
                 <ChevronRight className="w-3 h-3" />

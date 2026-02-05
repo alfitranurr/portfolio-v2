@@ -58,11 +58,21 @@
     border-color: hsl(var(--color-border));
   }
 
-  body {
-    background-color: hsl(var(--color-background));
-    color: hsl(var(--color-foreground));
-    font-family: "Poppins", sans-serif; /* Tambahan: Set Poppins sebagai default global */
-  }
+body {
+  background-color: hsl(var(--color-background));
+  color: hsl(var(--color-foreground));
+  font-family: "Poppins", sans-serif; /* Tambahan: Set Poppins sebagai default global */
+}
+}
+
+/* Hide scrollbars without disabling scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 /* Custom gradient class (transparan modern hitam-putih) */
