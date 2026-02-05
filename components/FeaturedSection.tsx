@@ -83,7 +83,7 @@ export default function FeaturedSection() {
             animate={isInView ? "visible" : "hidden"}
             className="shrink-0 w-full md:w-auto md:flex-1 snap-start md:snap-none"
           >
-            <Card className="relative h-72 md:h-96 overflow-hidden border-2 border-border dark:border-white/25 ring-1 ring-white/10 dark:ring-black/10 w-full mx-auto md:mx-0 group gradient-bg">
+            <Card className="relative h-72 md:h-96 overflow-hidden border-2 border-border dark:border-white/25 ring-1 ring-white/10 dark:ring-black/10 w-full mx-auto md:mx-0 group gradient-bg cursor-pointer">
               <MotionImage
                 src={item.image}
                 alt={item.title}
